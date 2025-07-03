@@ -2,9 +2,13 @@ from random import choice
 import pandas
 import datetime as dt
 import smtplib
+import os
+import dotenv
 
-MY_EMAIL = 'amirsoltanix34@gmail.com'
-MY_PASSWORD = "dttlxiqgjkfiufdx"
+dotenv.load_dotenv()
+
+MY_EMAIL = os.getenv("EMAIL")
+MY_PASSWORD = os.getenv("PASSWORD")
 
 
 
@@ -43,12 +47,3 @@ for data_person in data_file_dict:
             connection.sendmail(from_addr=MY_EMAIL,to_addrs=email,msg=f"Subject:Birthday Wisher\n\n{content}")
 
 
-
-# https://www.pythonanywhere.com/
-
-# bash
-# python3 main.py
-
-# task
-# python3 main.py
-# utc time now

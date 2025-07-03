@@ -1,4 +1,11 @@
 import requests
+import os
+import dotenv
+
+dotenv.load_dotenv()
+
+x_app_id = os.getenv("X-APP-ID")
+x_app_key = os.getenv("X-APP-KEY")
 
 
 class Nutritionix:
@@ -6,8 +13,8 @@ class Nutritionix:
         self.nutritionix_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
         self.nutritionix_headers = {
-            "x-app-id": "d500e81b",
-            "x-app-key": "22ca16fdf8a3a56b1e03ccbd28f4474d"
+            "x-app-id": x_app_id,
+            "x-app-key": x_app_key
         }
 
     def post_nutritionix_data(self, query):
